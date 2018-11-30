@@ -33,14 +33,6 @@ function addNote(){
 	
 }
 
-function addButton(){
-	var btn = document.createElement("BUTTON");        
-	var t = document.createTextNode("add note"); 
-	btn.id = "button"
-	btn.appendChild(t);                                
-	document.body.appendChild(btn); 
-}
 
 createContainer("body");
-addButton();
 document.getElementById("body").onclick=addNote;
