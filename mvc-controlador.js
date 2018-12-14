@@ -19,7 +19,7 @@ function addNote(e){
 		let tit =prompt("Write the title of your note");
 		let tex =prompt("Write the tcontent of your note");
 		arrNotes.push(new Note(tex,tit,arrNotes,"container"));
-		console.log(arrNotes);
+		
 	}
 } 
 function deleteNote(e){
@@ -43,9 +43,7 @@ function deleteNote(e){
 
 }
 
-console.log(arrNotes);
-createContainer("body");
-console.log(arrNotes);
+
 
 document.getElementById("body").onclick=addNote;
 document.getElementById("body").onmouseup=deleteNote;
