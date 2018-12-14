@@ -12,27 +12,40 @@ function createContainer(node){
 	document.body.appendChild(c);
 }
 
-function showNote(titule,content,node){
-	var x = document.createElement("DIV");
-	x.id = "note"
-	var t = document.createElement("H1");
-    var titule = document.createTextNode(titule);
-	var content = document.createTextNode(content);
-    x.setAttribute("style", "background-color: yellow;");
-    t.appendChild(titule);
-	x.appendChild(t);
-	x.appendChild(content);
-    document.getElementById(node).appendChild(x);
-}
 
-function addNote(){
-	let tit =prompt("Write the title of your note");
-	let tex =prompt("Write the tcontent of your note");
-	arrNotes.push(new Note(tex,tit));
-	showNote(arrNotes[arrNotes.length-1].text, arrNotes[arrNotes.length-1].title, "container");
+
+function addNote(e){
+	if(e.target.getAttribute("id") == "body" || e.target.getAttribute("class") == "container" ){
+		let tit =prompt("Write the title of your note");
+		let tex =prompt("Write the tcontent of your note");
+		arrNotes.push(new Note(tex,tit,arrNotes,"container"));
+		console.log(arrNotes);
+	}
+} 
+function deleteNote(e){
 	
+	if( e.target.getAttribute("class") == "content"){
+		
+		let num = e.target.parentElement.getAttribute("id");
+		let notes = document.getElementsByClassName("note");
+		document.getElementById(num).remove();
+		arrNotes[num]=[];
+		arrNotes[num][0]=false;
+	}
+	if( e.target.getAttribute("class") == "note"){
+		let num = e.target.getAttribute("id");
+		let notes = document.getElementsByClassName("note");
+		document.getElementById(num).remove();
+		arrNotes[num]=[];
+		arrNotes[num][0]=false;
+	
+	}
+
 }
 
-
+console.log(arrNotes);
 createContainer("body");
+console.log(arrNotes);
+
 document.getElementById("body").onclick=addNote;
+document.getElementById("body").onmouseup=deleteNote;
