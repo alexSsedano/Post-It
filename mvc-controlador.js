@@ -11,8 +11,9 @@ function createContainer(node){
 	c.id = "container";
 	document.body.appendChild(c);
 }
+createContainer();
 
-
+//----------------controlador------------------
 
 function addNote(e){
 	if(e.target.getAttribute("id") == "body" || e.target.getAttribute("class") == "container" ){

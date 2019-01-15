@@ -21,5 +21,6 @@ export class Note{
 		this.c.appendChild(this.content);
 		this.x.appendChild(this.c);
 		document.getElementById(this.nod).appendChild(this.x);
+	
 	}
 }
